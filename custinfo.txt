@@ -1,0 +1,436 @@
+
+elessar and tilly
+valentine
+roof
+
+
+
+8775.0
+429.89184341155226
+----
+Francis
+Keating
+windows
+
+
+2611.0
+176.37155270344073
+----
+Glenn
+Wade
+window/shed roof
+
+
+3273.0
+221.52959503051434
+----
+tim and kathy
+keeney
+roof
+dog is Andy, iffy credit
+4/1/21
+16287.0
+569.6891558313031
+----
+Brian
+Cisco
+gutters
+dogs ava and tucker, IT guy, girlfriend Courtney
+4/3/21
+1463.0
+92.16899999999998
+----
+donna
+taggart
+windows
+quick one, had to get home for mandy's spin.  Loves her grandkids, widdow, loves cruises
+4/5/21
+3602.0
+395.6029907407406
+----
+Zach
+Beharry
+window
+motorcycle in dining room, 12 mo no interest
+4/7/21
+9000.0
+271.09090909090907
+----
+ruth
+graham
+roof
+cat is sammy, son david, son craig, daughter susan
+4/8/21
+8500.0
+1125.2498150692168
+----
+jesse
+bower
+roof
+wife krystal, son logan, daughter marissa, dog loki.  Cancer survivor, Firestone mechanic
+4/8/21
+7957.0
+640.4072582469367
+----
+paul and jess
+shellenhamer
+roof
+cat orca, daughter emerald, he's IT, she's PHEAA
+4/8/21
+14387.0
+2938.4440509319625
+----
+ronald and annie
+imbach
+roof
+roof and 2 shed roofs
+4/9/21
+22806.0
+2396.088284830612
+----
+jeanette
+schweitzer
+rubber roof/gutter
+90 year widow, husband WWII, cash
+4/10/21
+4076.0
+57.06399999999999
+----
+Nicole and scott
+kennedy
+windows
+daughters quinn and leighton
+4/10/21
+10700.0
+149.79999999999998
+----
+thelma
+hodge
+roof
+granddaughter deijah, lived in home 42 years, very sweet
+4/13/21
+19853.0
+1076.04501740431
+----
+jeremy reese and kari king
+king
+windows/fascia/soffit
+cats maymay and loki
+4/14/21
+23488.0
+674.4368425693337
+----
+eddie and lizette
+collazo
+roof
+mother died of covid, both had covid badly
+4/15/21
+6485.0
+112.9411008610085
+----
+aaron and holly beth
+stout
+doors
+2nd self gen
+4/20/21
+5505.0
+77.07000000000001
+----
+avery
+haskins
+roof
+GF headdy, cat baby, asked for cup of coffee
+4/21/21
+9467.0
+141.06775124792009
+----
+Freddy G and Rachel
+Witmer
+windows
+dogs chanka and jasper, Freddie is Peruvian, sold 1k overbook
+4/21/21
+7913.0
+1730.013249240561
+----
+carolyn 
+clinton
+windows
+sister Linda, 3 grandkids
+4/22/21
+4483.0
+466.97766770016403
+----
+john
+flook
+roof
+double wide, got up on roof, wanted metal but bought shingle
+4/26/21
+7674.0
+107.43599999999999
+----
+jesus and peggy
+perez
+roof
+rehash, dog is gio, has apen siding from dave A.
+4/29/21
+10902.0
+152.628
+----
+Chris and Brooke
+Maharg
+roof, windows, siding, trim
+dogs archer and bowan, daughters Jessa and Jaidyn
+4/30/21
+49812.0
+697.3679999999999
+----
+John and lauren
+colson
+roof
+dogs emma and sadie, trump people :)
+5/1/21
+12540.0
+175.56
+----
+Mark and karen davis
+davis
+widow
+dogs bailey and mandy, slot car and miniature train hobbiest
+5/3/21
+2920.0
+464.63476635514013
+----
+sean
+trepanier
+SGD, DH
+son is jaysean, daughter is ??, wife is ivory.  Rehash
+5/7/21
+3590.0
+50.26
+----
+John and Pam
+bacon
+roof
+dogs jeter, rogers, duke.  son jarek.  
+5/11/21
+26573.0
+372.022
+----
+Andrew
+Clark
+siding/trim/gutters
+dog addy, mom Karen
+5/14/21
+14500.0
+203.0
+----
+nathaniel
+hawkins
+roof/trim
+self gen, multiple reschedules
+6/5/21
+17351.0
+773.8351772388057
+----
+roxanne and ronald
+eury
+windows
+dog is Buddy, son is RJ
+6/7/21
+7356.0
+909.1317507418396
+----
+fay
+smith
+windows
+dog clancy, catholic, works with addicts
+6/7/21
+4352.0
+60.928
+----
+Holly and Rob
+James
+roof
+dogs were gabby and marley, bee sting people
+6/8/21
+27148.0
+3444.29516731138
+----
+kathy
+farrell
+windows
+dog is fin
+6/10/21
+6952.0
+319.03930617214576
+----
+jennifer
+offutt
+sgd
+dogs pistol and piper
+6/14/21
+4727.0
+554.4083498552822
+----
+chris and lisa
+milihram
+windows
+5 windows, chris looks like biker, sons luke and frank, dog ada and ben, red politics, talked politics
+6/14/21
+6975.0
+1171.8
+----
+shane and alec
+piper
+roof
+cat gabby, shane is dad, alec is son (owner)
+6/17/21
+15672.0
+605.6225647626709
+----
+gary
+rodgers
+gutters
+PC, 27k roof before
+6/18/21
+5000.0
+189.52249308871575
+----
+paul and rosa
+shanholtz
+roof
+big house, nam vet, grandson Christian, rosa likes professional wrestling
+6/18/21
+34855.0
+3135.932052168097
+----
+Jennifer
+mccracken
+windows
+dog is hank, getting married, she's a lawyer, 28 windows
+6/22/21
+24715.0
+2328.107387847632
+----
+lisa
+geiger
+roof
+rubber roof, dogs ramone and chico, talked horror movies
+6/23/21
+9848.0
+1072.6274031060093
+----
+george and carol
+nunemaker
+winders
+dog bandit, believers, will watch our kids for us
+6/25/21
+4355.0
+159.0901792114695
+----
+joyce
+daniel
+sgd
+dog is quincy, daughter tara, g-son seth
+6/26/21
+4376.0
+381.6804274916505
+----
+Ben
+Fazio
+windows
+daughter Chloe, dad Joe, had to call his dad, had to harp on 3 day cancellation
+6/29/21
+5439.0
+76.146
+----
+Maryanne Howell
+howell
+windows
+cat lady, in wheel chair motorized, reminds me of nana, her mother can't hear (is 84)
+6/30/21
+3436.0
+305.72812618296524
+----
+Ernie 
+Hoke
+windows
+went out twice, bought second time. dog jackson. he's a jokester, kept messing with me but good natured.  thought he was getting casements when I thought he was getting DHs
+6/30/21
+6000.0
+84.0
+----
+kathy
+novik
+gutters
+bhudist statues, dog is annie, deceased husband greg, 
+7/1/21
+7528.0
+607.392
+----
+Gloria
+Williams
+windows
+sister Selena gibson, quoted by another company at 27k for 5 windows!  Mother hattie has dementia
+7/1/21
+9986.0
+202.22
+----
+Mike 
+Takis
+roof/windows
+dog is kylo, engineer type, was irritated at the end and then turned around a last second
+7/2/21
+28900.0
+0
+----
+jeb and kristen dingeldein
+siding/gutters
+son liam 3 yrs old, air force vet, has band of brothers paintings in dining room
+7/5/21
+955.7800039365235 / 34141.0
+----
+rich limbach
+roof/windows/rebuilding
+cats are mystic, bella,dutchess, pandora
+7/7/21
+1845.7324539251654 / 58095.0
+----
+Miguel and Felicia Silvera
+Rubber roof
+Joe came with, just met with Miguel himself
+7/12/21
+676.6484821748173 / 13673.0
+----
+Nancy bojarquez
+rubber/shingle roof with gutter
+prior customer near philly
+7/17/21
+894.6176743125798 / 29768.0
+----
+rhoda howard
+eaves/fascia/soffit rebuild
+very nice christian black lady, uses house to rent and live
+7/19/21
+1124.424 / 6693.0
+----
+tammy rennie
+windows
+widower, husband charles, homeschooling mom, all 5 kids adopted
+7/20/21
+1135.5776858846918 / 5554.0
+----
+steve and agnes thomas
+windows/doors
+dog gizmo, christians
+7/21/21
+1568.3199921630094 / 22845.0
+----
+	23r efvq23
+q3efqvwq
+234 
+11-08-2021 20:13:26
+test test
+testy
+test
+13-08-2021 11:54:01
