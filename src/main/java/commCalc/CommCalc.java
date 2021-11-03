@@ -18,8 +18,32 @@ import java.util.Scanner;
 import java.util.Properties;
 
 public class CommCalc {
-
+	
+	public static String firstName;
+	public static String lastName;
+	public static String product;
+	public static String comments;
+	public static String credstat;
+	public static double book;
+	public static double actual;
+	public static double drop;
+	public static double commission;
+	public static double posscomm;
+	public static double monthcomm;
+	public static double monthsales;
+	public static double bonustier;
+	public static double closerate;
+	
+	
+	
+	static void gui() {
+		Gui myGui = new Gui();
+		myGui.main(null);
+	}
+	
 	public static void main(String[] args) throws IOException {
+		
+		gui();
 
 		Scanner scanner = new Scanner(System.in);
 		BufferedWriter bw = null;
@@ -36,13 +60,13 @@ public class CommCalc {
 
 			// v v Initial data entry
 			System.out.println("Enter first name: ");
-			String firstName = scanner.nextLine();
+			firstName = scanner.nextLine();
 			System.out.println("Enter last name: ");
-			String lastName = scanner.nextLine();
+			lastName = scanner.nextLine();
 			System.out.println("Enter product: ");
-			String product = scanner.nextLine();
+			product = scanner.nextLine();
 			System.out.println("Comments: ");
-			String comments = scanner.nextLine();
+			comments = scanner.nextLine();
 
 			System.out.println("Date: ");
 			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -50,7 +74,7 @@ public class CommCalc {
 			System.out.println(formatter.format(date));
 
 			System.out.println("Credit status: ");
-			String credstat = scanner.nextLine();
+			credstat = scanner.nextLine();
 
 			// v v v Code to determine monthly closing percentage
 
@@ -66,6 +90,8 @@ public class CommCalc {
 			bwappt = new BufferedWriter(new FileWriter("appts.txt"));
 			bwappt.write(String.valueOf(apptsadd));
 			bwappt.flush();
+			
+			
 
 			// v v This is to track basic appointment data
 			bw = new BufferedWriter(new FileWriter("custinfo.txt", true));
@@ -84,17 +110,19 @@ public class CommCalc {
 
 			// v v Commission calculations
 			System.out.println("Enter book price: ");
-			double book = scanner.nextDouble();
+			book = scanner.nextDouble();
 			System.out.println("Enter price sold for: ");
-			double actual = scanner.nextDouble();
-			double drop = ((book - actual) / book);
+			actual = scanner.nextDouble();
+			drop = ((book - actual) / book);
 			double commperc = (.48 - (drop)) / 2;
 
 			// v v Big IF statement that determines different outcomes based on how deep the
 			// rep discounted the price
 			if (drop > .48) {
 				System.out.println("Dropped " + 100 * drop + " %, which is greater than a 48% drop. Commission is 0.");
-
+				commission = 0;
+				posscomm = 0;
+				
 				// v v Code for monthly running total of commissions earned
 				String linecontent = Files.readAllLines(Paths.get("totalcommissions.txt")).get(0);
 				double commofline = Double.parseDouble(linecontent);
@@ -103,6 +131,8 @@ public class CommCalc {
 				bwcomm.write(String.valueOf(commadd));
 				bwcomm.flush();
 				System.out.println("Total MONTHLY commissions: " + commadd);
+				
+				monthcomm = commadd;
 
 				// v v Code for monthly running total of sales earned AND monthly bonus tier
 				String linecontents = Files.readAllLines(Paths.get("totalsales.txt")).get(0);
@@ -112,158 +142,163 @@ public class CommCalc {
 				bwcomm.write(String.valueOf(amountadd));
 				bwcomm.flush();
 				System.out.println("Total MONTHLY sales: " + amountadd);
+				
+				monthsales = amountadd;
+				
 				if (amountadd > 0 && amountadd < 60000) {
 					int bonus = 0;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
+					bonustier = bonus;
 				} else if (amountadd >= 60000 && amountadd < 70000) {
 					int bonus = 800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
+					bonustier = bonus;
 				} else if (amountadd >= 70000 && amountadd < 80000) {
 					int bonus = 1200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 80000 && amountadd < 90000) {
 					int bonus = 1500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 90000 && amountadd < 100000) {
 					int bonus = 1700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 100000 && amountadd < 115000) {
 					int bonus = 2000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 115000 && amountadd < 130000) {
 					int bonus = 2200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 130000 && amountadd < 145000) {
 					int bonus = 2400;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 145000 && amountadd < 160000) {
 					int bonus = 2600;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 160000 && amountadd < 170000) {
 					int bonus = 2800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 170000 && amountadd < 180000) {
 					int bonus = 3200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 180000 && amountadd < 190000) {
 					int bonus = 3500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 190000 && amountadd < 200000) {
 					int bonus = 3700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 200000 && amountadd < 215000) {
 					int bonus = 4000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 215000 && amountadd < 230000) {
 					int bonus = 4200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 230000 && amountadd < 245000) {
 					int bonus = 4400;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 245000 && amountadd < 260000) {
 					int bonus = 4600;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 260000 && amountadd < 270000) {
 					int bonus = 4800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 270000 && amountadd < 280000) {
 					int bonus = 5200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 280000 && amountadd < 290000) {
 					int bonus = 5500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 290000 && amountadd < 300000) {
 					int bonus = 5700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else {
 					int bonus = 6000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				}
 
 				// v v Code for yearly running total commissions earned
@@ -355,6 +390,7 @@ public class CommCalc {
 				} catch (MessagingException mex) {
 					mex.printStackTrace();
 				}
+				closerate = soldadd / apptsadd * 100;
 				scanner.next();
 			}
 
@@ -362,7 +398,10 @@ public class CommCalc {
 				System.out.println("Dropped " + 100 * drop
 						+ " %, which is greater than a 44% drop but less than 48%. Commission is " + .02 * actual * .7
 						+ " of " + .24 * book * .7);
-
+				
+				commission = .02 * actual * .7;
+				posscomm = .24 * book * .7;
+				
 				// v v Code for monthly running total of commissions earned
 				String linecontent = Files.readAllLines(Paths.get("totalcommissions.txt")).get(0);
 				double commofline = Double.parseDouble(linecontent);
@@ -371,6 +410,8 @@ public class CommCalc {
 				bwcomm.write(String.valueOf(commadd));
 				bwcomm.flush();
 				System.out.println("Total MONTHLY commissions: " + commadd);
+				
+				monthcomm = commadd;
 
 				// v v Code for monthly running total of sales earned AND monthly bonus tier
 				String linecontents = Files.readAllLines(Paths.get("totalsales.txt")).get(0);
@@ -380,160 +421,163 @@ public class CommCalc {
 				bwcomm.write(String.valueOf(amountadd));
 				bwcomm.flush();
 				System.out.println("Total MONTHLY sales: " + amountadd);
+				
+				monthsales = amountadd;
+				
 				if (amountadd > 0 && amountadd < 60000) {
 					int bonus = 0;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 60000 && amountadd < 70000) {
 					int bonus = 800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 70000 && amountadd < 80000) {
 					int bonus = 1200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 80000 && amountadd < 90000) {
 					int bonus = 1500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 90000 && amountadd < 100000) {
 					int bonus = 1700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 100000 && amountadd < 115000) {
 					int bonus = 2000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 115000 && amountadd < 130000) {
 					int bonus = 2200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 130000 && amountadd < 145000) {
 					int bonus = 2400;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 145000 && amountadd < 160000) {
 					int bonus = 2600;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 160000 && amountadd < 170000) {
 					int bonus = 2800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 170000 && amountadd < 180000) {
 					int bonus = 3200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 180000 && amountadd < 190000) {
 					int bonus = 3500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 190000 && amountadd < 200000) {
 					int bonus = 3700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 200000 && amountadd < 215000) {
 					int bonus = 4000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 215000 && amountadd < 230000) {
 					int bonus = 4200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 230000 && amountadd < 245000) {
 					int bonus = 4400;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 245000 && amountadd < 260000) {
 					int bonus = 4600;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 260000 && amountadd < 270000) {
 					int bonus = 4800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 270000 && amountadd < 280000) {
 					int bonus = 5200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 280000 && amountadd < 290000) {
 					int bonus = 5500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 290000 && amountadd < 300000) {
 					int bonus = 5700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else {
 					int bonus = 6000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				}
 
 				// v v Code for yearly running total commissions earned
@@ -626,6 +670,7 @@ public class CommCalc {
 				} catch (MessagingException mex) {
 					mex.printStackTrace();
 				}
+				closerate = soldadd / apptsadd * 100;
 				scanner.next();
 			}
 
@@ -633,6 +678,9 @@ public class CommCalc {
 				double comm = commperc * actual * .7;
 				System.out.println("Dropped " + 100 * drop + " %. Commission is " + comm + " of " + .24 * book * .7);
 
+				commission = comm;
+				posscomm = .24 * book * .7;
+				
 				// v v Code for monthly running total of commissions earned
 				String linecontent = Files.readAllLines(Paths.get("totalcommissions.txt")).get(0);
 				double commofline = Double.parseDouble(linecontent);
@@ -641,6 +689,8 @@ public class CommCalc {
 				bwcomm.write(String.valueOf(commadd));
 				bwcomm.flush();
 				System.out.println("Total MONTHLY commissions: " + commadd);
+				
+				monthcomm = commadd;
 
 				// v v Code for monthly running total of sales earned AND monthly bonus tier
 				String linecontents = Files.readAllLines(Paths.get("totalsales.txt")).get(0);
@@ -650,160 +700,163 @@ public class CommCalc {
 				bwcomm.write(String.valueOf(amountadd));
 				bwcomm.flush();
 				System.out.println("Total MONTHLY sales: " + amountadd);
+				
+				monthsales = amountadd;
+				
 				if (amountadd > 0 && amountadd < 60000) {
 					int bonus = 0;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 60000 && amountadd < 70000) {
 					int bonus = 800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 70000 && amountadd < 80000) {
 					int bonus = 1200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 80000 && amountadd < 90000) {
 					int bonus = 1500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 90000 && amountadd < 100000) {
 					int bonus = 1700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 100000 && amountadd < 115000) {
 					int bonus = 2000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 115000 && amountadd < 130000) {
 					int bonus = 2200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 130000 && amountadd < 145000) {
 					int bonus = 2400;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 145000 && amountadd < 160000) {
 					int bonus = 2600;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 160000 && amountadd < 170000) {
 					int bonus = 2800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 170000 && amountadd < 180000) {
 					int bonus = 3200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 180000 && amountadd < 190000) {
 					int bonus = 3500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 190000 && amountadd < 200000) {
 					int bonus = 3700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 200000 && amountadd < 215000) {
 					int bonus = 4000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 215000 && amountadd < 230000) {
 					int bonus = 4200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 230000 && amountadd < 245000) {
 					int bonus = 4400;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 245000 && amountadd < 260000) {
 					int bonus = 4600;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 260000 && amountadd < 270000) {
 					int bonus = 4800;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 270000 && amountadd < 280000) {
 					int bonus = 5200;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 280000 && amountadd < 290000) {
 					int bonus = 5500;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else if (amountadd >= 290000 && amountadd < 300000) {
 					int bonus = 5700;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				} else {
 					int bonus = 6000;
 					bwbonus = new BufferedWriter(new FileWriter("monthlybonus.txt"));
 					bwbonus.write(String.valueOf(bonus));
 					bwbonus.flush();
 					System.out.println("Monthly bonus is: " + bonus);
-
+					bonustier = bonus;
 				}
 
 				// v v Code for yearly running total commissions earned
@@ -897,7 +950,10 @@ public class CommCalc {
 				}
 
 				System.out.println("Monthly closing rate: " + (soldadd / apptsadd * 100) + "%");
+				
+				closerate = soldadd / apptsadd * 100;
 				scanner.next();
+				
 			}
 		}
 
@@ -960,6 +1016,7 @@ public class CommCalc {
 				mex.printStackTrace();
 			}
 		}
+		
 	}
 
 }
