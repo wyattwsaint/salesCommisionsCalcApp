@@ -7,6 +7,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,15 +37,14 @@ public class CommCalc {
 	public static double closerate;
 	
 	
+
 	
-	static void gui() {
-		Gui myGui = new Gui();
-		myGui.main(null);
-	}
 	
 	public static void main(String[] args) throws IOException {
 		
-		gui();
+		
+		Gui gui = new Gui();
+		
 
 		Scanner scanner = new Scanner(System.in);
 		BufferedWriter bw = null;
